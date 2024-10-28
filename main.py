@@ -38,7 +38,7 @@ class TestCheckoutForm(QDialog):
     uid: str
     """The UID of the user that is checking out the test."""
 
-    def __init__(self, parent: QWidget | None = None, uid = ""):
+    def __init__(self, parent: QWidget | None = None, uid: str = "") -> None:
         super().__init__(parent)
         self.setWindowTitle("QDialog")
         self.uid = uid
@@ -55,7 +55,7 @@ class HeadcountDialog(QDialog):
     is_friday: bool
     """Whether it is Friday or not."""
 
-    def __init__(self, is_friday, parent: QWidget | None = None):
+    def __init__(self, is_friday: bool, parent: QWidget | None = None) -> None:
 
         super().__init__(parent)
 
@@ -95,7 +95,7 @@ class HeadcountDialog(QDialog):
         self.play_random_sound()
         
 
-    def play_random_sound(self):
+    def play_random_sound(self) -> None:
         """Play a random sound. This is used to play a sound at 30m and 55m."""
         
         directory = SONGS_FOLDER_FRIDAY if self.is_friday else SONGS_FOLDER
@@ -113,8 +113,9 @@ class HeadcountDialog(QDialog):
         # play the sound
         self.media_player.setSource(QUrl.fromLocalFile(os.path.join(directory, random_file)))
         self.media_player.play()
+
     
-    def closeEvent(self, event: QCloseEvent | None):
+    def closeEvent(self, event: QCloseEvent | None) -> None:
         """Override the close event to stop the media player when the dialog is closed."""
         self.media_player.stop()
         
@@ -127,7 +128,7 @@ class MentorWindow(QMainWindow):
     current_minute: int
     """The current minute of the system time. Used to open the browser at the right time."""
 
-    current_hue: int
+    current_hue: float
     """The current hue of the background color. Used do the scrolling color."""
 
     time_key_has_text: int
@@ -136,7 +137,7 @@ class MentorWindow(QMainWindow):
     key_string: str
     """The string that is being input by the card reader."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         # Creaton
@@ -158,7 +159,7 @@ class MentorWindow(QMainWindow):
 
         # start the color change timer and set event (update is called every 30ms)
         self.color_timer = QTimer(self)
-        self.color_timer.timeout.connect(self.update)
+        self.color_timer.timeout.connect(self.update_window)
         self.color_timer.start(30)
 
         # layout
@@ -183,7 +184,7 @@ class MentorWindow(QMainWindow):
             self.timeLabel, alignment=Qt.AlignmentFlag.AlignBottom)
 
 
-    def update(self):
+    def update_window(self) -> None:
         """Update the window. This is initialized in __init__ and is called every 30ms."""
 
         self.change_background_color()
@@ -224,7 +225,7 @@ class MentorWindow(QMainWindow):
         # update the time label
         self.timeLabel.setText(string_time)
 
-    def change_background_color(self):
+    def change_background_color(self) -> None:
         """Change the background color of the window."""
 
         # Increment the hue by 0.5, if it is 360, set it to 0.
@@ -237,7 +238,7 @@ class MentorWindow(QMainWindow):
         color =  f'rgb({new_color[0] * 255}, {new_color[1] * 255}, {new_color[2] * 255})'
         self.setStyleSheet(f'background-color: {color}')
 
-    def keyPressEvent(self, event: QKeyEvent | None):
+    def keyPressEvent(self, event: QKeyEvent | None) -> None:
         """Override to listen for key press events. This is used to listen for card reader input."""
 
         if event is None:
@@ -249,7 +250,7 @@ class MentorWindow(QMainWindow):
         else:
             self.key_string += event.text()
 
-    def check_uid(self, card_data: str):
+    def check_uid(self, card_data: str) -> None:
         """Currently work in progress. This function is called when the whole UID is input by the card reader."""
         # Check if the UID is valid. See README.md for more information on the card format.
         match = re.match(r"^;([0-9]{9})=[0-9]{4}\?$", card_data)
@@ -262,7 +263,7 @@ class MentorWindow(QMainWindow):
 
 
 
-def main():
+def main() -> None:
     """Mentor App's main function."""
     mentorApp = QApplication([])
     mentorWindow = MentorWindow()
