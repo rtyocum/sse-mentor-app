@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sse-test-checkout",
+  "private_key_id": "8c2f953e028995989295b964ec5570d90e1b7269",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC6JcVbvrvNAXyT\nWXBJFOcApl9dLp4vENSny2fJ7HsCd11yMy8ERkXjye3F9OV5ixv6R+t7K55joczB\nlDnzg1LNNOGzYSWZYhUq7JNGZkmzF52Cxr1UuANpYcUeY8CeDzc4Ygv8O0bv4jWo\nzXxfIjPwFQzQq1jWuJd8TWQAf0ix4nMtBNzrvLj/O6zlN/0ndHD8xKcn1k7gZdu/\nteEpiCdHqLG5ofb3qGb/IHr6nW8Lf5yq1oQN4cfJqAcdTnk08PJ9CLEalIVm6/L3\nQAsoeIh4VwJekhSonQQ61FSRLrYQ4v19QsYCnLYmREpdt3E9wM4xORrS7raT4oky\nNt3qr0RfAgMBAAECggEABGLOcc5z2K06dQhW88nedYP2Bu6Jw0ciE5VggSqlbVXy\n/uADhsDByyUKCVovVqah8Urk2qvuQ/UJ1jJ6uROfjak7e4FZpEcM2PbmXh1xNXCO\n1rLTFDNvv88SGMNgmaN3JB4fSoFPtxLn5m3NCpAg6X0S0Q8wfS1amGRZwQSUFGjc\nrP5a3GM9Dwn7snzgwqhJv308oobVkdm+whShaWqtYu2YaZOXUWFtqICzMiJAmdIK\nhlL7F5WWEq4gMxQTh6h0fwrE/Q5qgGmxFds581UyMgx/ye9t/vihTrV+uAi2w0Cl\noxlwlcPZ62y8b1sNZZIVplG8fUcUR8o7O3EE4wyf4QKBgQDxIdOyaym1bCZo23Mh\ntxdyXmF9VeBQoi+u6HU7CN5BEVAAPR3rNIkAKLOGV5zBtp6h+koI/jhs7r0fVbbe\nXb3QRG9axTEvjiqggLpuDiD+VArBj9HOfG6IXiAoPa3znFmNsN/9yFGrs59adAUP\ni5atiCZpW1RAlu3H64Mneu5yYQKBgQDFoAjSSruc0xjKfqmnpx6eqn3//6PNje4D\nUBnNG18UcuqVRj+J9QLFCuuOEiSAx01mnEteXpnbBKmbIBp5bHbU09ckdgkxn5Uc\n7xtLY3vz0R/SbuQYWXKaXZtfYhprwU91M2ib+/7/Z60419lv/QUJviWKpL2nKkTM\nRbF5sUquvwKBgQC3xXsMwGVSMjF3usAdEugYrtuH5RoG+gRzPhCSRGj2mBYriGiz\n6B79cweXPFBoxiBR/GnOPsmMI8sZBX9QK4tNHcrsF9srjiLonhL3a2czzaNA77YL\ns4OeBHZnlNJtFlyeAw5C4Rd1T3kEO+XbehwE9v2nUAZ/D0f7FH+paCQwIQKBgEsI\ntzC5BUDG+auwqdOo5TxS+WIget4J3GvPluxETzZhZ2Xj9S35I+MSgVtA0jE++slR\n4F/lRT9eJtNqPgMKRpgKEq6aTmVT9Pa2ZkOacy6goRdx2RLRq2ymy95MTkHJdNTH\n/xjydeAdSizB76HQjIAlfPWGFSgKKXLxpy/QO83bAoGBAN3PdKki4lpfg2zsZmlE\nOEm245RzKOEw+fyf4l8sAjQA3A251DDsyqvFpTzwZ7g/jt0fJ0AaRUQk8q85yEr1\n16DZF/krz5WgsNuhVZt2V5lzSpiOu6Agw2SP+tB2yHsZp83nw9Um7LvpC3yqZO8B\nZGQOe7aSh7JmcepdG7DaSyId\n-----END PRIVATE KEY-----\n",
+  "client_email": "sse-test-checkout@sse-test-checkout.iam.gserviceaccount.com",
+  "client_id": "107439004279561854290",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sse-test-checkout%40sse-test-checkout.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
