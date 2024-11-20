@@ -6,14 +6,11 @@ from PyQt6.QtWidgets import QApplication
 from MentorWindow import MentorWindow
 
 
-
 LAB_HEADCOUNT_TIME = 30
 """The time in minutes when the lab headcount is triggered. (Usually 30 minutes)"""
 
 MENTEE_HEADCOUNT_TIME = 55
 """The time in minutes when the mentee headcount is triggered. (Usually 55 minutes)"""
-
-
 
 
 def main() -> None:
