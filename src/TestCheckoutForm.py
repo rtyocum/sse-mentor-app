@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QDialog, QVBoxLayout, QFormLayout, QLineEdit, QPushButton, QWidget, QLabel
 
+
 class TestCheckoutForm(QDialog):
     """A form to checkout a test. This form will be opened when a user scans their card."""
 
@@ -15,7 +16,7 @@ class TestCheckoutForm(QDialog):
     success: bool
     """Whether the form was successfully submitted."""
 
-    def __init__(self, parent: QWidget | None = None, user: tuple = None) -> None:
+    def __init__(self, user: tuple, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Test Checkout")
         self.setFixedSize(400, 300)
@@ -53,24 +54,23 @@ class TestCheckoutForm(QDialog):
             }
         """)
 
-        
         # Set up layout
-        self.layout = QVBoxLayout()
+        self.main_layout = QVBoxLayout()
         self.form_layout = QFormLayout()
-        
+
         # Add form fields
 
         self.user_info_label = QLabel(f"{user[2]} {user[3]} ({user[1]})")
         self.form_layout.addRow("User:", self.user_info_label)
-        
+
         self.course_code_input = QLineEdit()
         self.course_code_input.setPlaceholderText("Course Code")
         self.form_layout.addRow("Course Code:", self.course_code_input)
-        
+
         self.exam_input = QLineEdit()
         self.exam_input.setPlaceholderText("Exam")
         self.form_layout.addRow("Exam:", self.exam_input)
-        
+
         # Add submit button
         self.submit_button = QPushButton("Checkout")
         self.submit_button.clicked.connect(self.validate_submit_form)
@@ -78,15 +78,15 @@ class TestCheckoutForm(QDialog):
         self.error_label = QLabel()
         self.error_label.hide()
         self.form_layout.addRow("", self.error_label)
-        
-        # Add layouts to main layout
-        self.layout.addLayout(self.form_layout)
-        self.layout.addWidget(self.submit_button)
-        
-        # Set dialog layout
-        self.setLayout(self.layout)
 
-    def validate_submit_form(self):
+        # Add layouts to main layout
+        self.main_layout.addLayout(self.form_layout)
+        self.main_layout.addWidget(self.submit_button)
+
+        # Set dialog layout
+        self.setLayout(self.main_layout)
+
+    def validate_submit_form(self) -> None:
         """Validate the form and show a success message if successful."""
         # Check if all fields are filled out
         if self.course_code_input.text() and self.exam_input.text():
