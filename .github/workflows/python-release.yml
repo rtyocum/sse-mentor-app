@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - release
-  pull_request:
-    branches:
-      - release
 
 jobs:
   build:
@@ -29,8 +26,8 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: |
-          apt update
-          apt install -y python3-pyqt6
+          sudo apt update
+          sudo apt install -y python3-pyqt6
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pyinstaller
