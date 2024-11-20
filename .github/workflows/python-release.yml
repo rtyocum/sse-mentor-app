@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt install -y qt6-base-dev qt6-multimedia
+          sudo apt install -y qt6-base-dev qt6-multimedia-dev
           /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX
           python -m pip install --upgrade pip
           pip install -r requirements.txt
