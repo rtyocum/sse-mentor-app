@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS testcheckout (
   id INTEGER PRIMARY KEY,
   user_id INTEGER NOT NULL,
+  sheets_range VARCHAR(255),
   course_code VARCHAR(255) NOT NULL,
   test_name VARCHAR(255) NOT NULL,
   checkout_date DATE NOT NULL,

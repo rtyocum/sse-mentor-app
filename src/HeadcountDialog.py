@@ -11,6 +11,7 @@ SONGS_FOLDER = "/data/Songs/"
 SONGS_FOLDER_FRIDAY = "/data/Songs/Friday/"
 """The folder where the friday songs are stored."""
 
+
 class HeadcountDialog(QDialog):
     """A dialog that opens when the headcount gets triggered. Handle playing the song"""
 
@@ -37,7 +38,8 @@ class HeadcountDialog(QDialog):
         self.media_player.setAudioOutput(self.audio_output)
 
         # close the dialog when the song ends
-        self.media_player.mediaStatusChanged.connect(lambda status: self.close() if status == QMediaPlayer.MediaStatus.EndOfMedia else None)
+        self.media_player.mediaStatusChanged.connect(lambda status: self.close(
+        ) if status == QMediaPlayer.MediaStatus.EndOfMedia else None)
 
         self.setWindowModality(Qt.WindowModality.ApplicationModal)
 
@@ -77,7 +79,7 @@ class HeadcountDialog(QDialog):
 
         # add a label
         self.label = QLabel("Headcount Time!")
-        
+
         # no background color/transparent
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.main_layout.addWidget(self.label)
@@ -87,13 +89,11 @@ class HeadcountDialog(QDialog):
         self.ok_button.clicked.connect(self.close)
         self.main_layout.addWidget(self.ok_button)
 
-
         self.play_random_sound()
-        
 
     def play_random_sound(self) -> None:
         """Play a random sound. This is used to play a sound at 30m and 55m."""
-        
+
         directory = SONGS_FOLDER_FRIDAY if self.is_friday else SONGS_FOLDER
 
         # pick a random sound
@@ -107,13 +107,13 @@ class HeadcountDialog(QDialog):
         random_file = random.choice(files)
 
         # play the sound
-        self.media_player.setSource(QUrl.fromLocalFile(os.path.join(directory, random_file)))
+        self.media_player.setSource(QUrl.fromLocalFile(
+            os.path.join(directory, random_file)))
         self.media_player.play()
 
-    
     def closeEvent(self, event: QCloseEvent | None) -> None:
         """Override the close event to stop the media player when the dialog is closed."""
         self.media_player.stop()
-        
+
         if event is not None:
             event.accept()

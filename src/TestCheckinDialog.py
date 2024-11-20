@@ -1,9 +1,14 @@
-from PyQt6.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QPushButton, QLabel
+from PyQt6.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QPushButton, QLabel, QWidget
+
+from typing import Tuple
 
 # enum
+
+
 class TestCheckinAction:
     RETURN = 1
     SWAP = 2
+
 
 class TestCheckinDialog(QDialog):
 
@@ -13,9 +18,10 @@ class TestCheckinDialog(QDialog):
     action: int
     """The action to take."""
 
-    test_checkout: tuple
+    test_checkout: Tuple[int, str, str]
+    """The test that is being checked in."""
 
-    def __init__(self, parent=None, test_checkout=None, user=None):
+    def __init__(self, user: Tuple[int, str, str, str], test_checkout: Tuple[int, str, str], parent: QWidget | None = None) -> None:
         super().__init__(parent)
 
         self.test_checkout = test_checkout
@@ -54,12 +60,13 @@ class TestCheckinDialog(QDialog):
                 background-color: #0447B1;
             }
         """)
-        
+
         self.user_info_label = QLabel(f"User: {user[2]} {user[3]} ({user[1]})")
 
-        self.label = QLabel("Student has the test: " + test_checkout[1] + " " + test_checkout[2] + ". What would you like to do?")
+        self.label = QLabel("Student has the test: " +
+                            test_checkout[1] + " " + test_checkout[2] + ". What would you like to do?")
         self.label.setWordWrap(True)
-        
+
         self.return_button = QPushButton("Return Test")
         self.return_button.clicked.connect(self.return_test)
 
@@ -69,26 +76,25 @@ class TestCheckinDialog(QDialog):
         self.cancel_button = QPushButton("Cancel")
         self.cancel_button.clicked.connect(self.cancel)
 
-        layout = QVBoxLayout()
-        btn_layout = QHBoxLayout()
-        layout.addWidget(self.user_info_label)
-        layout.addWidget(self.label)
-        btn_layout.addWidget(self.return_button)
-        btn_layout.addWidget(self.swap_button)
-        btn_layout.addWidget(self.cancel_button)
-        layout.addLayout(btn_layout)
-        self.setLayout(layout)
-    
-    def return_test(self):
+        self.main_layout = QVBoxLayout()
+        self.btn_layout = QHBoxLayout()
+        self.main_layout.addWidget(self.user_info_label)
+        self.main_layout.addWidget(self.label)
+        self.btn_layout.addWidget(self.return_button)
+        self.btn_layout.addWidget(self.swap_button)
+        self.btn_layout.addWidget(self.cancel_button)
+        self.main_layout.addLayout(self.btn_layout)
+        self.setLayout(self.main_layout)
+
+    def return_test(self) -> None:
         self.action = TestCheckinAction.RETURN
         self.success = True
         self.accept()
-    
-    def swap_test(self):
+
+    def swap_test(self) -> None:
         self.action = TestCheckinAction.SWAP
         self.success = True
         self.accept()
-    
-    def cancel(self):
-        self.accept()
 
+    def cancel(self) -> None:
+        self.accept()
