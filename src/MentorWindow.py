@@ -74,7 +74,7 @@ class MentorWindow(QMainWindow):
         self.main_layout.addStretch()
 
         # title (the big text in the middle)
-        self.titleLabel = QLabel("HeLlO, Mentor! Swipe a card")
+        self.titleLabel = QLabel("Hello, Mentor! Swipe a card")
         self.titleLabel.setStyleSheet(
             f"font-size: {TITLE_FONT_SIZE}px; color: black;")
         self.titleLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
