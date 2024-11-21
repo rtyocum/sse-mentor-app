@@ -6,13 +6,11 @@ on:
       - release
 
 jobs:
-  build-linux:
+  build-windows:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
-    env:
-      DISPLAY: ':99.0'
     
     steps:
       # Step 1: Check out the repository
@@ -28,17 +26,14 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: |
-          sudo apt update
-          sudo apt install -y qt6-base-dev qt6-multimedia
-          /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pyinstaller
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+            pip install pyinstaller
 
       # Step 4: Build with PyInstaller
       - name: Build Executable
         run: |
-          pyinstaller --onefile src/main.py
+          pyinstaller --onefile --hidden-import=cryptography src/main.py
 
       # Step 5: Archive the build artifacts
       - name: Archive Build
