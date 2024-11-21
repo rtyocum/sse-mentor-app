@@ -5,10 +5,10 @@ from PyQt6.QtGui import QCloseEvent
 import os
 import random
 
-SONGS_FOLDER = "/data/Songs/"
+SONGS_FOLDER = "C:\\Users\\sse-mentor\\headcounttest\Songs"
 """The folder where the songs are stored."""
 
-SONGS_FOLDER_FRIDAY = "/data/Songs/Friday/"
+SONGS_FOLDER_FRIDAY = "C:\\Users\\sse-mentor\\headcounttest\Songs\\Friday"
 """The folder where the friday songs are stored."""
 
 

@@ -110,7 +110,7 @@ class MentorWindow(QMainWindow):
             self.time_key_has_text = 0
 
         # open the browser at the right time. current_minute is used to prevent the browser from opening multiple times in the same minute.
-        if (minutes == 45 and minutes != self.current_minute):
+        if (minutes == 30 and minutes != self.current_minute):
             # open the browser
             self.current_minute = minutes
             webbrowser.open("https://forms.gle/Zem6tQbCTEsBpoza6", new=1)
@@ -118,7 +118,7 @@ class MentorWindow(QMainWindow):
             headcount_dialog.setWindowModality(
                 Qt.WindowModality.ApplicationModal)
             headcount_dialog.show()
-        elif (minutes == 46 and minutes != self.current_minute):
+        elif (minutes == 55 and minutes != self.current_minute):
             # open the browser
             self.current_minute = minutes
             webbrowser.open("https://forms.gle/Zem6tQbCTEsBpoza6", new=1)
