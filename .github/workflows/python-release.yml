@@ -6,13 +6,11 @@ on:
       - main
 
 jobs:
-  build-linux:
+  build-windows:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
-    env:
-      DISPLAY: ':99.0'
     
     steps:
       # Step 1: Check out the repository
@@ -34,35 +32,9 @@ jobs:
             libfreetype-dev \
             libx11-dev \
             libx11-xcb-dev \
-            libxcb-cursor-dev \
-            libxcb-glx0-dev \
-            libxcb-icccm4-dev \
-            libxcb-image0-dev \
-            libxcb-keysyms1-dev \
-            libxcb-randr0-dev \
-            libxcb-render-util0-dev \
-            libxcb-shape0-dev \
-            libxcb-shm0-dev \
-            libxcb-sync-dev \
-            libxcb-util-dev \
-            libxcb-xfixes0-dev \
-            libxcb-xinerama0-dev \
-            libxcb-xkb-dev \
-            libxcb1-dev \
-            libxext-dev \
-            libxfixes-dev \
-            libxi-dev \
-            libxkbcommon-dev \
-            libxkbcommon-x11-dev \
-            libxrender-dev \
-            libpulse-dev \
-            libxcb-cursor0 \
-          
-          sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
-          /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pyinstaller
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+            pip install pyinstaller
 
       # Step 4: Build with PyInstaller
       - name: Build Executable
