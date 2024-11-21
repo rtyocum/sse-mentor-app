@@ -26,12 +26,6 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: |
-          sudo apt update
-          sudo apt install \
-            libfontconfig1-dev \
-            libfreetype-dev \
-            libx11-dev \
-            libx11-xcb-dev \
             python -m pip install --upgrade pip
             pip install -r requirements.txt
             pip install pyinstaller
