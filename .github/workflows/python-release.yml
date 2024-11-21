@@ -3,7 +3,7 @@ name: PyInstaller Build
 on:
   push:
     branches:
-      - main
+      - release
 
 jobs:
   build-windows:
