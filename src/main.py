@@ -16,7 +16,7 @@ MENTEE_HEADCOUNT_TIME = 55
 def main() -> None:
     """Mentor App's main function."""
 
-    db_conn = sqlite3.connect("./mentor.db")
+    db_conn = sqlite3.connect("D:\\mentor.db")
 
     mentorApp = QApplication([])
     mentorWindow = MentorWindow(db_conn)
