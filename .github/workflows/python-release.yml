@@ -33,7 +33,7 @@ jobs:
       # Step 4: Build with PyInstaller
       - name: Build Executable
         run: |
-          pyinstaller --onefile src/main.py
+          pyinstaller --onefile --hidden-import=cryptography src/main.py
 
       # Step 5: Archive the build artifacts
       - name: Archive Build
