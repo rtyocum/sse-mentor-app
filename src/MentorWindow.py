@@ -302,6 +302,8 @@ class MentorWindow(QMainWindow):
                 ]
             }, headers={"Authorization": f"Bearer {access_token}"})
 
+            print(res.json())
+
             res.raise_for_status()
 
             cursor = self.db_conn.execute("UPDATE testcheckout SET SHEETS_RANGE = ? WHERE ID = ?", (res.json()[
