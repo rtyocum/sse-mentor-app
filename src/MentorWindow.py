@@ -271,7 +271,7 @@ class MentorWindow(QMainWindow):
         cursor.close()
 
         config = None
-        with open("./config.json") as f:
+        with open("D:\\config.json") as f:
             config = json.load(f)
 
         payload = {
